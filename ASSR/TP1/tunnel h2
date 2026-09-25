@@ -1,0 +1,23 @@
+#!/bin/bash
+
+K1=0xd9dc6092fb813c63919f2fe3dcc94308f2985c3c4aa1c073515841e532025afb
+K2=0x0e1075443b2eb9c885958f639e2cc825131bc2371b35581b8b9143638baa0c4e
+K3=0x4be85cee6903e0e0e8578f395276b4ef042b6c6b5ef762d17b52dd9002fea7aa
+K4=0x09d879277ea9e3428d098d4ff15d1c79fc280a19976a68ec7aa15a62ce52afbc
+
+SPI1=0x44e237b9
+SPI2=0x0cd9c5c1
+
+Rid1=0xd54731af
+Rid2=0xc1bbb55e
+
+# Définition de la SA de h1 vers h2
+ip xfrm state add src 10.10.10.1 dst 10.0.0.1 proto esp spi "$SPI1" reqid "$Rid1" mode transport auth sha256 "$K1" enc aes "$K2"
+# Définition de la SA de h2 vers h1
+ip xfrm state add src 10.0.0.1 dst 10.10.10.1 proto esp spi "$SPI2" reqid "$Rid2" mode transport auth sha256 "$K3" enc aes "$K4"
+
+
+# Mise en place SP de h2
+ip xfrm policy add src 10.10.10.1 dst 10.0.0.1 dir in tmpl src 10.10.10.1 dst 10.0.0.1 proto esp reqid "$Rid1" mode transport
+ip xfrm policy add src 10.0.0.1 dst 10.10.10.1 dir out tmpl src 10.0.0.1 dst 10.10.10.1 proto esp reqid "$Rid2" mode transport
+
