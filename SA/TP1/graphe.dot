@@ -1,0 +1,17 @@
+digraph WebOfTrust {
+    rankdir=LR;
+    node [shape=box, style="rounded,filled", fontname="Helvetica"];
+
+    // Nœuds
+    malespine [
+        label="Thibault Malespine\n4A639C989AF38C35\nConfiance : ultime", 
+        fillcolor="#bbf7d0"
+    ];
+    barbey [
+        label="Théo Barbey\n9308EC202987B4BE\nConfiance : totale", 
+        fillcolor="#e0f2fe"
+    ];
+
+    // Relations (signature)
+    malespine -> barbey [label="signe (27/09/2026)"];
+}
