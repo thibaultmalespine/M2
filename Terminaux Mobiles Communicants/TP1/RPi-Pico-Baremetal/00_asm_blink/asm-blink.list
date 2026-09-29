@@ -1,0 +1,162 @@
+
+asm-blink.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+20040000 <_vectors>:
+20040000:	20001000 			@ <UNDEFINED> instruction: 20001000
+20040004:	20040009 			@ <UNDEFINED> instruction: 20040009
+
+20040008 <_reset>:
+20040008:	480d      	ldr	r0, [pc, #52]	@ (20040040 <_loop+0xe>)
+2004000a:	4685      	mov	sp, r0
+2004000c:	4b0d      	ldr	r3, [pc, #52]	@ (20040044 <_loop+0x12>)
+2004000e:	2220      	movs	r2, #32
+20040010:	601a      	str	r2, [r3, #0]
+20040012:	4b0d      	ldr	r3, [pc, #52]	@ (20040048 <_loop+0x16>)
+20040014:	2205      	movs	r2, #5
+20040016:	601a      	str	r2, [r3, #0]
+20040018:	4b0c      	ldr	r3, [pc, #48]	@ (2004004c <_loop+0x1a>)
+2004001a:	2280      	movs	r2, #128	@ 0x80
+2004001c:	0492      	lsls	r2, r2, #18
+2004001e:	601a      	str	r2, [r3, #0]
+
+20040020 <_blink>:
+20040020:	4b0b      	ldr	r3, [pc, #44]	@ (20040050 <_loop+0x1e>)
+20040022:	2280      	movs	r2, #128	@ 0x80
+20040024:	0492      	lsls	r2, r2, #18
+20040026:	601a      	str	r2, [r3, #0]
+20040028:	480a      	ldr	r0, [pc, #40]	@ (20040054 <_loop+0x22>)
+2004002a:	f000 f801 	bl	20040030 <_delay>
+2004002e:	e7f7      	b.n	20040020 <_blink>
+
+20040030 <_delay>:
+20040030:	1c04      	adds	r4, r0, #0
+
+20040032 <_loop>:
+20040032:	3c01      	subs	r4, #1
+20040034:	2c00      	cmp	r4, #0
+20040036:	d1fc      	bne.n	20040032 <_loop>
+20040038:	4770      	bx	lr
+2004003a:	46c0      	nop			@ (mov r8, r8)
+2004003c:	46c0      	nop			@ (mov r8, r8)
+2004003e:	46c0      	nop			@ (mov r8, r8)
+20040040:	20001000 			@ <UNDEFINED> instruction: 20001000
+20040044:	4000f000 			@ <UNDEFINED> instruction: 4000f000
+20040048:	400140cc 			@ <UNDEFINED> instruction: 400140cc
+2004004c:	d0000020 			@ <UNDEFINED> instruction: d0000020
+20040050:	d000001c 			@ <UNDEFINED> instruction: d000001c
+20040054:	000186a0 			@ <UNDEFINED> instruction: 000186a0
+
+Disassembly of section .ARM.attributes:
+
+00000000 <.ARM.attributes>:
+   0:	00002141 			@ <UNDEFINED> instruction: 00002141
+   4:	61656100 			@ <UNDEFINED> instruction: 61656100
+   8:	01006962 			@ <UNDEFINED> instruction: 01006962
+   c:	00000017 			@ <UNDEFINED> instruction: 00000017
+  10:	726f4305 			@ <UNDEFINED> instruction: 726f4305
+  14:	2d786574 			@ <UNDEFINED> instruction: 2d786574
+  18:	002b304d 			@ <UNDEFINED> instruction: 002b304d
+  1c:	4d070c06 			@ <UNDEFINED> instruction: 4d070c06
+  20:	Address 0x20 is out of bounds.
+
+
+Disassembly of section .debug_line:
+
+00000000 <.debug_line>:
+   0:	00000053 			@ <UNDEFINED> instruction: 00000053
+   4:	001f0002 			@ <UNDEFINED> instruction: 001f0002
+   8:	01020000 			@ <UNDEFINED> instruction: 01020000
+   c:	000a0efb 	strdeq	r0, [sl], -fp
+  10:	01010101 			@ <UNDEFINED> instruction: 01010101
+  14:	01000000 			@ <UNDEFINED> instruction: 01000000
+  18:	6d736100 			@ <UNDEFINED> instruction: 6d736100
+  1c:	696c622d 			@ <UNDEFINED> instruction: 696c622d
+  20:	732e6b6e 			@ <UNDEFINED> instruction: 732e6b6e
+  24:	00000000 			@ <UNDEFINED> instruction: 00000000
+  28:	02050000 			@ <UNDEFINED> instruction: 02050000
+  2c:	20040008 			@ <UNDEFINED> instruction: 20040008
+  30:	1e011203 			@ <UNDEFINED> instruction: 1e011203
+  34:	1f1e1e1f 			@ <UNDEFINED> instruction: 1f1e1e1f
+  38:	1e1f1e1e 			@ <UNDEFINED> instruction: 1e1f1e1e
+  3c:	1e201e1e 			@ <UNDEFINED> instruction: 1e201e1e
+  40:	1e1f1e1e 			@ <UNDEFINED> instruction: 1e1f1e1e
+  44:	1e1f222d 			@ <UNDEFINED> instruction: 1e1f222d
+  48:	5d031e1e 			@ <UNDEFINED> instruction: 5d031e1e
+  4c:	2f2f2e47 			@ <UNDEFINED> instruction: 2f2f2e47
+  50:	02023031 			@ <UNDEFINED> instruction: 02023031
+  54:	Address 0x54 is out of bounds.
+
+
+Disassembly of section .debug_info:
+
+00000000 <.debug_info>:
+   0:	00000022 			@ <UNDEFINED> instruction: 00000022
+   4:	00000002 			@ <UNDEFINED> instruction: 00000002
+   8:	01040000 			@ <UNDEFINED> instruction: 01040000
+   c:	00000000 			@ <UNDEFINED> instruction: 00000000
+  10:	20040000 			@ <UNDEFINED> instruction: 20040000
+  14:	20040058 			@ <UNDEFINED> instruction: 20040058
+  18:	00000000 			@ <UNDEFINED> instruction: 00000000
+  1c:	0000000c 			@ <UNDEFINED> instruction: 0000000c
+  20:	0000006c 			@ <UNDEFINED> instruction: 0000006c
+  24:	Address 0x24 is out of bounds.
+
+
+Disassembly of section .debug_abbrev:
+
+00000000 <.debug_abbrev>:
+   0:	10001101 			@ <UNDEFINED> instruction: 10001101
+   4:	12011106 			@ <UNDEFINED> instruction: 12011106
+   8:	1b0e0301 			@ <UNDEFINED> instruction: 1b0e0301
+   c:	130e250e 			@ <UNDEFINED> instruction: 130e250e
+  10:	00000005 			@ <UNDEFINED> instruction: 00000005
+
+Disassembly of section .debug_aranges:
+
+00000000 <.debug_aranges>:
+   0:	0000001c 			@ <UNDEFINED> instruction: 0000001c
+   4:	00000002 			@ <UNDEFINED> instruction: 00000002
+   8:	00040000 			@ <UNDEFINED> instruction: 00040000
+   c:	00000000 			@ <UNDEFINED> instruction: 00000000
+  10:	20040000 			@ <UNDEFINED> instruction: 20040000
+  14:	00000058 			@ <UNDEFINED> instruction: 00000058
+	...
+
+Disassembly of section .debug_str:
+
+00000000 <.debug_str>:
+   0:	2d6d7361 			@ <UNDEFINED> instruction: 2d6d7361
+   4:	6e696c62 			@ <UNDEFINED> instruction: 6e696c62
+   8:	00732e6b 			@ <UNDEFINED> instruction: 00732e6b
+   c:	6d6f682f 			@ <UNDEFINED> instruction: 6d6f682f
+  10:	616d2f65 			@ <UNDEFINED> instruction: 616d2f65
+  14:	7073656c 			@ <UNDEFINED> instruction: 7073656c
+  18:	2f656e69 			@ <UNDEFINED> instruction: 2f656e69
+  1c:	75636f44 			@ <UNDEFINED> instruction: 75636f44
+  20:	746e656d 			@ <UNDEFINED> instruction: 746e656d
+  24:	324d2f73 			@ <UNDEFINED> instruction: 324d2f73
+  28:	7265542f 			@ <UNDEFINED> instruction: 7265542f
+  2c:	616e696d 			@ <UNDEFINED> instruction: 616e696d
+  30:	4d207875 			@ <UNDEFINED> instruction: 4d207875
+  34:	6c69626f 			@ <UNDEFINED> instruction: 6c69626f
+  38:	43207365 			@ <UNDEFINED> instruction: 43207365
+  3c:	756d6d6f 			@ <UNDEFINED> instruction: 756d6d6f
+  40:	6163696e 			@ <UNDEFINED> instruction: 6163696e
+  44:	2f73746e 			@ <UNDEFINED> instruction: 2f73746e
+  48:	2f315054 			@ <UNDEFINED> instruction: 2f315054
+  4c:	2d695052 			@ <UNDEFINED> instruction: 2d695052
+  50:	6f636950 			@ <UNDEFINED> instruction: 6f636950
+  54:	7261422d 			@ <UNDEFINED> instruction: 7261422d
+  58:	74656d65 			@ <UNDEFINED> instruction: 74656d65
+  5c:	302f6c61 			@ <UNDEFINED> instruction: 302f6c61
+  60:	73615f30 			@ <UNDEFINED> instruction: 73615f30
+  64:	6c625f6d 			@ <UNDEFINED> instruction: 6c625f6d
+  68:	006b6e69 			@ <UNDEFINED> instruction: 006b6e69
+  6c:	20554e47 			@ <UNDEFINED> instruction: 20554e47
+  70:	32205341 			@ <UNDEFINED> instruction: 32205341
+  74:	2e35342e 			@ <UNDEFINED> instruction: 2e35342e
+  78:	Address 0x78 is out of bounds.
+
