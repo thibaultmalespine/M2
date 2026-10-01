@@ -1,0 +1,7 @@
+#!/bin/bash
+
+sudo mkdir /tmp/h2
+sudo mount --bind /tmp/h2 /run
+sudo ipsec start
+swanctl --load-creds
+swanctl --load-conns

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+sudo mkdir /tmp/r2
+sudo mount --bind /tmp/r2 /run
+sudo ipsec start
+swanctl --load-creds

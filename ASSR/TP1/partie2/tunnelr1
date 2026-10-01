@@ -1,0 +1,9 @@
+#!/bin/bash
+
+sudo killall charon
+sudo killall starter
+sudo mkdir /tmp/r1
+sudo mount --bind /tmp/r1 /run
+sudo ipsec start
+swanctl --load-creds
+swanctl --load-conns

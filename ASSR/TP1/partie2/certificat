@@ -1,0 +1,6 @@
+#!/bin/bash
+
+pki --pub --in pki/private/r1Key.pem --type rsa | pki --issue \
+--cacert pki/cacerts/ca-cert.pem --cakey pki/private/ca-key.pem \
+--lifetime 1825 --dn "CN=172.16.1.1" --san 172.16.1.1 \
+--san @172.16.1.1 --outform pem > pki/certs/r1.pem
