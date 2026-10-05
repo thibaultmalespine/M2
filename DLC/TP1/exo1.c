@@ -55,7 +55,10 @@ int main(int argc, char **argv){
     do
     {
         mpz_urandomb(a, prng, k);
-        gmp_printf("nombre généré : %Zd\n", a);
+        //gmp_printf("nombre généré : %Zd\n", a);
+        printf("Nombre généré (binaire) : ");
+        mpz_out_str(stdout, 2, a);
+        printf("\n");
     } while (mpz_fdiv_ui(a,20) != 0);
     
     
