@@ -3,5 +3,7 @@
 sudo mkdir /tmp/h2
 sudo mount --bind /tmp/h2 /run
 sudo ipsec start
+sleep 0.4
 swanctl --load-creds
+sleep 0.4
 swanctl --load-conns

@@ -3,4 +3,7 @@
 sudo mkdir /tmp/r2
 sudo mount --bind /tmp/r2 /run
 sudo ipsec start
+sleep 0.4
 swanctl --load-creds
+sleep 0.4
+swanctl --load-conns
