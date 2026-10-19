@@ -23,7 +23,7 @@ void seed_gmp_from_urandom(gmp_randstate_t prng, size_t bytes) {
     // Importe les octets bruts directement en mpz_t
     mpz_import(seed, bytes, 1, sizeof(buffer[0]), 0, 0, buffer);
 
-    gmp_printf("Seed utilisée : %Zd\n", seed);
+    gmp_printf("Seed utilisée : %Zd\n\n", seed);
 
     gmp_randseed(prng, seed);
     mpz_clear(seed);
