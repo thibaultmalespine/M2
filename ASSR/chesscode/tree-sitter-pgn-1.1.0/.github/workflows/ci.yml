@@ -1,0 +1,23 @@
+name: PGN grammar CI
+
+on:
+  pull_request:
+    paths-ignore:
+      - '**.md'
+
+jobs:
+  test_unixlike:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: true
+      matrix:
+        os: [macos-latest, ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: tree-sitter/setup-action@v1
+      - name: Run test commands
+        shell: bash
+        run: |
+          tree-sitter generate
+          tree-sitter test
+          ./script/parse_examples.sh
